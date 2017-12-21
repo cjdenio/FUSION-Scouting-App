@@ -10,6 +10,7 @@ public class scoutingApp extends JFrame {
 		initUI();
 	}
 	JButton submit;
+	JComboBox score;
 	public void initUI() {
 		this.setSize(600, 200);
 		this.setTitle("FUSION 6763 Scouting");
@@ -20,7 +21,7 @@ public class scoutingApp extends JFrame {
 		
 		JLabel title = new JLabel("Submit a robot to the database");
 		//Font titleFont = title.getFont();
-		title.setFont(new Font("Raleway Light", Font.PLAIN, 40));
+		title.setFont(new Font("Segoe UI Light", Font.PLAIN, 40));
 		panel.add(title);
 		
 		panel.add(new JLabel("Team number"));
@@ -33,12 +34,12 @@ public class scoutingApp extends JFrame {
 		panel.add(new JLabel("How did they do?"));
 		
 		String[] scoreList = {"Well", "OK", "Bad"};
-		JComboBox score = new JComboBox(scoreList);
+		score = new JComboBox(scoreList);
 		panel.add(score);
 				
 		submit = new JButton("Submit");
 		submit.addActionListener(new ClickListener());
-		submit.setFont(new Font("Raleway", Font.PLAIN, 20));
+		submit.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		panel.add(submit);
 		submit.setVisible(true);
 		
@@ -47,7 +48,15 @@ public class scoutingApp extends JFrame {
 	public class ClickListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == submit) {
-				//Put button actions here.
+				if(score.getSelectedItem() == "Well") {
+					JOptionPane.showMessageDialog(scoutingApp.this,"This team is a good choice");
+				}
+				else if(score.getSelectedItem() == "OK") {
+					JOptionPane.showMessageDialog(scoutingApp.this,"They're OK.");
+				}
+				else if(score.getSelectedItem() == "Bad") {
+					JOptionPane.showMessageDialog(scoutingApp.this,"BAD!");
+				}
 			}
 		}
 	}
