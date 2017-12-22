@@ -11,6 +11,8 @@ public class scoutingApp extends JFrame {
 	}
 	JButton submit;
 	JComboBox score;
+	JButton next;
+	JTextField number;
 	public void initUI() {
 		this.setSize(600, 200);
 		this.setTitle("FUSION 6763 Scouting");
@@ -26,7 +28,7 @@ public class scoutingApp extends JFrame {
 		
 		panel.add(new JLabel("Team number"));
 		
-		JTextField number = new JTextField(20);
+		number = new JTextField(20);
 		number.setToolTipText("The number is used for database organization.");
 		number.setVisible(true);
 		panel.add(number);
@@ -36,7 +38,13 @@ public class scoutingApp extends JFrame {
 		String[] scoreList = {"Well", "OK", "Bad"};
 		score = new JComboBox(scoreList);
 		panel.add(score);
-				
+			
+		next = new JButton("Next");
+		next.addActionListener(new ClickListener());
+		next.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		panel.add(next);
+		next.setVisible(true);
+		
 		submit = new JButton("Submit");
 		submit.addActionListener(new ClickListener());
 		submit.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -57,6 +65,10 @@ public class scoutingApp extends JFrame {
 				else if(score.getSelectedItem() == "Bad") {
 					JOptionPane.showMessageDialog(scoutingApp.this,"BAD!");
 				}
+			}
+			if(e.getSource() == next) {
+				number.setText("");
+				score.setSelectedIndex(0);
 			}
 		}
 	}
