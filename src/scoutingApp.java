@@ -57,13 +57,13 @@ public class scoutingApp extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == submit) {
 				if(score.getSelectedItem() == "Well") {
-					JOptionPane.showMessageDialog(scoutingApp.this,"This team is a good choice");
+					JOptionPane.showMessageDialog(scoutingApp.this,"Team "+number.getText()+" is a good choice");
 				}
 				else if(score.getSelectedItem() == "OK") {
-					JOptionPane.showMessageDialog(scoutingApp.this,"They're OK.");
+					JOptionPane.showMessageDialog(scoutingApp.this,"Team "+number.getText()+" is OK.");
 				}
 				else if(score.getSelectedItem() == "Bad") {
-					JOptionPane.showMessageDialog(scoutingApp.this,"BAD!");
+					JOptionPane.showMessageDialog(scoutingApp.this,"Team "+number.getText()+" is BAD!");
 				}
 			}
 			if(e.getSource() == next) {
